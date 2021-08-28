@@ -42,23 +42,24 @@ public class DataGenerator {
 
     public static Registration generateBlockedCustomer() {
         Faker faker = new Faker(new Locale("en"));
-        Registration validBlockedCustomer = new Registration(faker.name().firstName(), faker.internet().password(), "blocked");
+        Registration validBlockedCustomer = new Registration(faker.name().firstName(), faker.internet().password(),
+                "blocked");
         requestForm(validBlockedCustomer);
         return validBlockedCustomer;
     }
 
-    public static Registration generateInvalidCustomerPassword() {
-        Faker faker = new Faker(new Locale("en"));
-        Registration invalidPassword = new Registration(faker.name().firstName(), "validpassword", "active");
-        requestForm(invalidPassword);
-        return new Registration(faker.name().firstName(), "invalidpassword", "active");
-    }
-
     public static Registration generateInvalidCustomerLogin() {
         Faker faker = new Faker(new Locale("en"));
-        Registration invalidLogin = new Registration("validlogin", faker.internet().password(), "active");
-        requestForm(invalidLogin);
-        return new Registration("invalidlogin", faker.internet().password(), "active");
+        Registration invalidLogin = new Registration(faker.name().firstName(), "password", "active");
+        return new Registration(faker.name().firstName(), "password", "active");
 
     }
-}
+
+    public static Registration generateInvalidCustomerPassword() {
+        Faker faker = new Faker(new Locale("en"));
+        Registration invalidPassword = new Registration("login", faker.internet().password(),"active");
+        requestForm(invalidPassword);
+        return new Registration("login", faker.internet().password(),"active");
+    }
+
+  }
