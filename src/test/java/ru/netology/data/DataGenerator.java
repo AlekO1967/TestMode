@@ -20,6 +20,9 @@ public class DataGenerator {
             .log(LogDetail.ALL)
             .build();
 
+    private DataGenerator() {
+    }
+
     public static void requestForm(Registration registration) {
         given()
                 .spec(specification)
