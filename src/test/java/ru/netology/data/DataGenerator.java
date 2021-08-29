@@ -35,7 +35,8 @@ public class DataGenerator {
 
     public static Registration generateActiveCustomer() {
         Faker faker = new Faker(new Locale("en"));
-        Registration validActiveCustomer = new Registration(faker.name().firstName(), faker.internet().password(), "active");
+        Registration validActiveCustomer = new Registration(faker.name().firstName(), faker.internet().password(),
+                "active");
         requestForm(validActiveCustomer);
         return validActiveCustomer;
     }
@@ -51,6 +52,7 @@ public class DataGenerator {
     public static Registration generateInvalidCustomerLogin() {
         Faker faker = new Faker(new Locale("en"));
         Registration invalidLogin = new Registration(faker.name().firstName(), "password", "active");
+        requestForm(invalidLogin);
         return new Registration(faker.name().firstName(), "password", "active");
 
     }
